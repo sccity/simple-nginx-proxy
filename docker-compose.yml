@@ -1,0 +1,17 @@
+version: '3'
+services:
+  nginx-proxy:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: sccity/nginx-proxy:latest
+    container_name: nginx-proxy
+    environment:
+      - TZ=America/Denver
+    ports:
+      - "80:80"
+    volumes:
+      - "/etc/nginx-proxy:/etc/nginx/conf.d"
+    restart: unless-stopped
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
