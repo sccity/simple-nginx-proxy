@@ -6,6 +6,7 @@ services:
       dockerfile: Dockerfile
     image: sccity/nginx-proxy:latest
     container_name: nginx-proxy
+    tty: true
     environment:
       - TZ=America/Denver
     ports:
